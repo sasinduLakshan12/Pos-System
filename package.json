@@ -1,0 +1,14 @@
+{
+  "name": "pos-system-root",
+  "version": "1.0.0",
+  "description": "LoomPOS Smart Store Root Package",
+  "private": true,
+  "scripts": {
+    "start:backend": "cd backend && npm run dev",
+    "start:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "test:concurrency": "cd backend && npm run test:concurrency"
+  }
+}

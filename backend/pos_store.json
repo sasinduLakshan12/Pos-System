@@ -1,0 +1,323 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Wireless Ergonomic Mouse",
+      "price": 49.99,
+      "stock": 15,
+      "reserved_stock": 6
+    },
+    {
+      "id": "2",
+      "name": "Mechanical RGB Keyboard",
+      "price": 119.99,
+      "stock": 8,
+      "reserved_stock": 7
+    },
+    {
+      "id": "3",
+      "name": "UltraWide 34\" Monitor",
+      "price": 499.99,
+      "stock": 3,
+      "reserved_stock": 0
+    },
+    {
+      "id": "4",
+      "name": "USB-C Multi-Port Hub",
+      "price": 29.99,
+      "stock": 25,
+      "reserved_stock": 0
+    },
+    {
+      "id": "5",
+      "name": "Noise-Canceling Headphones",
+      "price": 199.99,
+      "stock": 5,
+      "reserved_stock": 0
+    },
+    {
+      "id": "1789268881360",
+      "name": "remote",
+      "price": 12,
+      "stock": 15,
+      "reserved_stock": 0
+    },
+    {
+      "id": "1789269283736",
+      "name": " Keyboard Stand",
+      "price": 20,
+      "stock": 50,
+      "reserved_stock": 0
+    },
+    {
+      "id": "1789269444939",
+      "name": "123",
+      "price": 12,
+      "stock": 20,
+      "reserved_stock": 0
+    },
+    {
+      "id": "1789269555450",
+      "name": "LoomPOS Pro Stand",
+      "price": 79.99,
+      "stock": 20,
+      "reserved_stock": 0
+    },
+    {
+      "id": "1789269946928",
+      "name": "789",
+      "price": 45,
+      "stock": 12,
+      "reserved_stock": 0
+    },
+    {
+      "id": "1789270283044",
+      "name": "LoomPOS Mongo Stand",
+      "price": 89.99,
+      "stock": 10,
+      "reserved_stock": 0
+    },
+    {
+      "id": "1789270350025",
+      "name": "hi",
+      "price": 343,
+      "stock": 33,
+      "reserved_stock": 0
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-4N7HRNB",
+      "cart_id": "CART-1789233596195",
+      "idempotency_key": null,
+      "total_amount": 169.98,
+      "status": "2026-09-12T17:24:56.531Z",
+      "created_at": "2026-09-12T17:19:56.532Z"
+    },
+    {
+      "id": "ORD-ADU8V19",
+      "cart_id": "CART-1789233730874",
+      "idempotency_key": null,
+      "total_amount": 289.96999999999997,
+      "status": "2026-09-12T17:27:10.897Z",
+      "created_at": "2026-09-12T17:22:10.898Z"
+    },
+    {
+      "id": "ORD-W219QK7",
+      "cart_id": "CART-1789234012867",
+      "idempotency_key": null,
+      "total_amount": 169.98,
+      "status": "2026-09-12T17:31:52.894Z",
+      "created_at": "2026-09-12T17:26:52.895Z"
+    },
+    {
+      "id": "ORD-8K4ZB7O",
+      "cart_id": "CART-1789234161874",
+      "idempotency_key": null,
+      "total_amount": 169.98,
+      "status": "2026-09-12T17:34:21.896Z",
+      "created_at": "2026-09-12T17:29:21.897Z"
+    },
+    {
+      "id": "ORD-42W0L4G",
+      "cart_id": "CART-1789234473018",
+      "idempotency_key": null,
+      "total_amount": 169.98,
+      "status": "2026-09-12T17:39:33.039Z",
+      "created_at": "2026-09-12T17:34:33.040Z"
+    },
+    {
+      "id": "ORD-XKZQRR2",
+      "cart_id": "CART-1789268773520",
+      "idempotency_key": null,
+      "total_amount": 169.98,
+      "status": "2026-09-13T03:11:14.040Z",
+      "created_at": "2026-09-13T03:06:14.043Z"
+    }
+  ],
+  "order_items": [
+    {
+      "id": 1789233596534,
+      "order_id": "ORD-4N7HRNB",
+      "product_id": "2",
+      "product_name": "Mechanical RGB Keyboard",
+      "unit_price": 119.99,
+      "quantity": 1
+    },
+    {
+      "id": 1789233596536,
+      "order_id": "ORD-4N7HRNB",
+      "product_id": "1",
+      "product_name": "Wireless Ergonomic Mouse",
+      "unit_price": 49.99,
+      "quantity": 1
+    },
+    {
+      "id": 1789233730900,
+      "order_id": "ORD-ADU8V19",
+      "product_id": "1",
+      "product_name": "Wireless Ergonomic Mouse",
+      "unit_price": 49.99,
+      "quantity": 1
+    },
+    {
+      "id": 1789233730903,
+      "order_id": "ORD-ADU8V19",
+      "product_id": "2",
+      "product_name": "Mechanical RGB Keyboard",
+      "unit_price": 119.99,
+      "quantity": 2
+    },
+    {
+      "id": 1789234012896,
+      "order_id": "ORD-W219QK7",
+      "product_id": "2",
+      "product_name": "Mechanical RGB Keyboard",
+      "unit_price": 119.99,
+      "quantity": 1
+    },
+    {
+      "id": 1789234012899,
+      "order_id": "ORD-W219QK7",
+      "product_id": "1",
+      "product_name": "Wireless Ergonomic Mouse",
+      "unit_price": 49.99,
+      "quantity": 1
+    },
+    {
+      "id": 1789234161898,
+      "order_id": "ORD-8K4ZB7O",
+      "product_id": "2",
+      "product_name": "Mechanical RGB Keyboard",
+      "unit_price": 119.99,
+      "quantity": 1
+    },
+    {
+      "id": 1789234161900,
+      "order_id": "ORD-8K4ZB7O",
+      "product_id": "1",
+      "product_name": "Wireless Ergonomic Mouse",
+      "unit_price": 49.99,
+      "quantity": 1
+    },
+    {
+      "id": 1789234473042,
+      "order_id": "ORD-42W0L4G",
+      "product_id": "1",
+      "product_name": "Wireless Ergonomic Mouse",
+      "unit_price": 49.99,
+      "quantity": 1
+    },
+    {
+      "id": 1789234473044,
+      "order_id": "ORD-42W0L4G",
+      "product_id": "2",
+      "product_name": "Mechanical RGB Keyboard",
+      "unit_price": 119.99,
+      "quantity": 1
+    },
+    {
+      "id": 1789268774045,
+      "order_id": "ORD-XKZQRR2",
+      "product_id": "2",
+      "product_name": "Mechanical RGB Keyboard",
+      "unit_price": 119.99,
+      "quantity": 1
+    },
+    {
+      "id": 1789268774049,
+      "order_id": "ORD-XKZQRR2",
+      "product_id": "1",
+      "product_name": "Wireless Ergonomic Mouse",
+      "unit_price": 49.99,
+      "quantity": 1
+    }
+  ],
+  "stock_reservations": [
+    {
+      "id": 1789233596535,
+      "order_id": "ORD-4N7HRNB",
+      "product_id": "2",
+      "quantity": 1,
+      "status": "2026-09-12T17:24:56.531Z"
+    },
+    {
+      "id": 1789233596546,
+      "order_id": "ORD-4N7HRNB",
+      "product_id": "1",
+      "quantity": 1,
+      "status": "2026-09-12T17:24:56.531Z"
+    },
+    {
+      "id": 1789233730901,
+      "order_id": "ORD-ADU8V19",
+      "product_id": "1",
+      "quantity": 1,
+      "status": "2026-09-12T17:27:10.897Z"
+    },
+    {
+      "id": 1789233730904,
+      "order_id": "ORD-ADU8V19",
+      "product_id": "2",
+      "quantity": 2,
+      "status": "2026-09-12T17:27:10.897Z"
+    },
+    {
+      "id": 1789234012897,
+      "order_id": "ORD-W219QK7",
+      "product_id": "2",
+      "quantity": 1,
+      "status": "2026-09-12T17:31:52.894Z"
+    },
+    {
+      "id": 1789234012900,
+      "order_id": "ORD-W219QK7",
+      "product_id": "1",
+      "quantity": 1,
+      "status": "2026-09-12T17:31:52.894Z"
+    },
+    {
+      "id": 1789234161899,
+      "order_id": "ORD-8K4ZB7O",
+      "product_id": "2",
+      "quantity": 1,
+      "status": "2026-09-12T17:34:21.896Z"
+    },
+    {
+      "id": 1789234161901,
+      "order_id": "ORD-8K4ZB7O",
+      "product_id": "1",
+      "quantity": 1,
+      "status": "2026-09-12T17:34:21.896Z"
+    },
+    {
+      "id": 1789234473043,
+      "order_id": "ORD-42W0L4G",
+      "product_id": "1",
+      "quantity": 1,
+      "status": "2026-09-12T17:39:33.039Z"
+    },
+    {
+      "id": 1789234473045,
+      "order_id": "ORD-42W0L4G",
+      "product_id": "2",
+      "quantity": 1,
+      "status": "2026-09-12T17:39:33.039Z"
+    },
+    {
+      "id": 1789268774048,
+      "order_id": "ORD-XKZQRR2",
+      "product_id": "2",
+      "quantity": 1,
+      "status": "2026-09-13T03:11:14.040Z"
+    },
+    {
+      "id": 1789268774051,
+      "order_id": "ORD-XKZQRR2",
+      "product_id": "1",
+      "quantity": 1,
+      "status": "2026-09-13T03:11:14.040Z"
+    }
+  ],
+  "payments": []
+}
