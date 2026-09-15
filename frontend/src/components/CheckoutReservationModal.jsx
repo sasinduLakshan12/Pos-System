@@ -139,13 +139,13 @@ export default function CheckoutReservationModal({
                     <span className="text-white font-medium">{item.product_name}</span>
                     <span className="text-xs text-gray-400 ml-2">x{item.quantity}</span>
                   </div>
-                  <span className="text-emerald-400 font-semibold">${(item.unit_price * item.quantity).toFixed(2)}</span>
+                  <span className="text-emerald-400 font-semibold">Rs. {(item.unit_price * item.quantity).toFixed(2)}</span>
                 </div>
               ))}
             </div>
             <div className="pt-2 border-t border-slate-800 flex justify-between items-center font-bold text-base">
               <span className="text-gray-300">Total:</span>
-              <span className="text-emerald-400">${order.total_amount.toFixed(2)}</span>
+              <span className="text-emerald-400">Rs. {order.total_amount.toFixed(2)}</span>
             </div>
           </div>
 

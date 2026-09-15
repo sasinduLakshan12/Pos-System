@@ -71,11 +71,11 @@ export default function ProductManagerModal({
                 />
               </div>
               <div>
-                <label className="block text-[11px] text-gray-400 font-semibold mb-1">Price ($)</label>
+                <label className="block text-[11px] text-gray-400 font-semibold mb-1">Price (Rs.)</label>
                 <input
                   type="number"
                   step="0.01"
-                  placeholder="e.g. 49.99"
+                  placeholder="e.g. 4999.00"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                   className="w-full bg-slate-950 text-white border border-slate-700 rounded-lg px-3 py-2 text-xs placeholder-gray-500 focus:outline-none focus:border-emerald-500 font-medium"
@@ -122,7 +122,7 @@ export default function ProductManagerModal({
                   {products.map((prod) => (
                     <tr key={prod.id || prod._id} className="hover:bg-slate-800/40">
                       <td className="p-3 font-semibold text-white">{prod.name}</td>
-                      <td className="p-3 text-emerald-400 font-bold">${prod.price.toFixed(2)}</td>
+                      <td className="p-3 text-emerald-400 font-bold">Rs. {prod.price.toFixed(2)}</td>
                       <td className="p-3">
                         {editingId === (prod.id || prod._id) ? (
                           <div className="flex items-center gap-1">

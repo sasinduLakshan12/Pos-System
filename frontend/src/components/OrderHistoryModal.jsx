@@ -84,7 +84,7 @@ export default function OrderHistoryModal({
                           <span className="text-gray-300 font-medium">{item.product_name}</span>
                           <div className="flex items-center gap-4">
                             <span className="text-gray-400">Qty: {item.quantity}</span>
-                            <span className="text-white font-semibold">${(item.unit_price * item.quantity).toFixed(2)}</span>
+                            <span className="text-white font-semibold">Rs. {(item.unit_price * item.quantity).toFixed(2)}</span>
                           </div>
                         </div>
                       ))}
@@ -93,7 +93,7 @@ export default function OrderHistoryModal({
                     {/* Footer */}
                     <div className="flex items-center justify-between pt-2">
                       <div className="text-sm font-extrabold text-emerald-400">
-                        Total: ${order.total_amount.toFixed(2)}
+                        Total: Rs. {order.total_amount.toFixed(2)}
                       </div>
 
                       <div className="flex items-center gap-2">

@@ -51,7 +51,7 @@ export default function ProductList({ products, onAddToCart }) {
                 </div>
 
                 <div className="text-2xl font-extrabold text-emerald-400 mb-4">
-                  ${product.price.toFixed(2)}
+                  Rs. {product.price.toLocaleString('en-LK', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </div>
 
                 {/* Inventory Stock Breakdown Pill */}

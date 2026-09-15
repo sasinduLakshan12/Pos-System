@@ -47,7 +47,7 @@ export default function CartModal({
                 <div>
                   <h4 className="font-semibold text-white text-sm">{product.name}</h4>
                   <p className="text-xs text-blue-400 font-medium">
-                    ${product.price.toFixed(2)} each
+                    Rs. {product.price.toFixed(2)} each
                   </p>
                 </div>
 
@@ -69,8 +69,8 @@ export default function CartModal({
                     </button>
                   </div>
 
-                  <span className="text-sm font-bold text-white w-20 text-right">
-                    ${(product.price * quantity).toFixed(2)}
+                  <span className="text-sm font-bold text-white w-24 text-right">
+                    Rs. {(product.price * quantity).toFixed(2)}
                   </span>
 
                   <button
@@ -91,7 +91,7 @@ export default function CartModal({
             <div className="flex justify-between items-center text-sm">
               <span className="text-gray-400">Total Amount:</span>
               <span className="text-2xl font-black text-emerald-400">
-                ${totalPrice.toFixed(2)}
+                Rs. {totalPrice.toFixed(2)}
               </span>
             </div>
 
