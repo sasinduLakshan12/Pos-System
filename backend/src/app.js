@@ -16,10 +16,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Middleware to ensure DB connection on serverless requests
+// Middleware to ensure DB connection & perform lazy stock cleanup on Vercel
 app.use(async (req, res, next) => {
   try {
     await connectDB();
+    // Perform lazy cleanup on serverless request
+    if (process.env.VERCEL) {
+      expiryService.cleanupExpiredReservations().catch(() => {});
+    }
   } catch (e) {}
   next();
 });
@@ -38,7 +42,9 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Start Background 5-Min Stock Lock Expiry Cleanup Ticker
-expiryService.startBackgroundJob(5000);
+// Start Background 5-Min Stock Lock Expiry Cleanup Ticker (for standalone node servers only)
+if (!process.env.VERCEL) {
+  expiryService.startBackgroundJob(5000);
+}
 
 module.exports = app;
