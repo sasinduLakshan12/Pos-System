@@ -1,11 +1,13 @@
 import React from 'react';
-import { X, RefreshCw, RotateCcw } from 'lucide-react';
+import { X, RefreshCw, RotateCcw, Trash2 } from 'lucide-react';
 
 export default function OrderHistoryModal({
   isOpen,
   onClose,
   orders,
   onCancelOrder,
+  onDeleteOrder,
+  onClearAllOrders,
   onRefreshOrders,
   onSelectOrder
 }) {
@@ -43,12 +45,25 @@ export default function OrderHistoryModal({
               <RefreshCw className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
           </div>
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-2">
+            {orders && orders.length > 0 && onClearAllOrders && (
+              <button
+                onClick={onClearAllOrders}
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 bg-red-500/10 text-red-400 hover:bg-red-500/20 border border-red-500/30 rounded-lg text-xs font-semibold transition"
+                title="Clear all order history"
+              >
+                <Trash2 className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Clear All Orders</span>
+                <span className="sm:hidden">Clear</span>
+              </button>
+            )}
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         {/* Content */}
@@ -96,7 +111,7 @@ export default function OrderHistoryModal({
                         Total: Rs. {Number(order.total_amount || 0).toFixed(2)}
                       </div>
 
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
                         {isReserved && (
                           <button
                             onClick={() => onSelectOrder(order)}
@@ -109,10 +124,20 @@ export default function OrderHistoryModal({
                         {canCancel && (
                           <button
                             onClick={() => onCancelOrder(order.id)}
-                            className="flex-1 sm:flex-none flex items-center justify-center gap-1 px-3 py-1.5 bg-red-500/20 text-red-300 hover:bg-red-500/30 border border-red-500/40 rounded-lg text-xs font-bold transition text-center"
+                            className="flex-1 sm:flex-none flex items-center justify-center gap-1 px-3 py-1.5 bg-yellow-500/20 text-yellow-300 hover:bg-yellow-500/30 border border-yellow-500/40 rounded-lg text-xs font-bold transition text-center"
                           >
                             <RotateCcw className="w-3 h-3" />
                             <span>Cancel & Restore</span>
+                          </button>
+                        )}
+
+                        {onDeleteOrder && (
+                          <button
+                            onClick={() => onDeleteOrder(order.id)}
+                            className="p-1.5 text-gray-500 hover:text-red-400 hover:bg-red-500/10 rounded-lg border border-slate-800 hover:border-red-500/30 transition"
+                            title="Delete this order"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
                           </button>
                         )}
                       </div>
@@ -127,3 +152,4 @@ export default function OrderHistoryModal({
     </div>
   );
 }
+

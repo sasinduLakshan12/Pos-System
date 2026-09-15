@@ -46,4 +46,25 @@ router.post('/:id/cancel', async (req, res) => {
   }
 });
 
+// DELETE /api/orders/clear - Clear all orders and order history
+router.delete('/clear', async (req, res) => {
+  try {
+    await orderService.clearAllOrders();
+    res.json({ success: true, message: 'All orders and history cleared successfully' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// DELETE /api/orders/:id - Delete single order
+router.delete('/:id', async (req, res) => {
+  try {
+    await orderService.deleteOrder(req.params.id);
+    res.json({ success: true, message: 'Order deleted successfully' });
+  } catch (err) {
+    res.status(400).json({ success: false, error: err.message });
+  }
+});
+
 module.exports = router;
+

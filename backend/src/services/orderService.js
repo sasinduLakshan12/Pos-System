@@ -195,6 +195,43 @@ const orderService = {
     }
 
     return this.getOrderById(orderId);
+  },
+
+  async deleteOrder(orderId) {
+    const order = await Order.findOne({ id: orderId });
+    if (!order) throw new Error(`Order ${orderId} not found`);
+
+    // If deleting an active RESERVED order, release the reserved stock
+    if (order.status === 'RESERVED') {
+      for (const item of order.items) {
+        await Product.findByIdAndUpdate(item.product_id, {
+          $inc: { reserved_stock: -item.quantity }
+        });
+      }
+      await StockReservation.updateMany({ order_id: orderId }, { status: 'RELEASED' });
+    }
+
+    await Order.findOneAndDelete({ id: orderId });
+    await Payment.deleteMany({ order_id: orderId });
+    await StockReservation.deleteMany({ order_id: orderId });
+    return true;
+  },
+
+  async clearAllOrders() {
+    // Release any active reservations first
+    const reservedOrders = await Order.find({ status: 'RESERVED' });
+    for (const order of reservedOrders) {
+      for (const item of order.items) {
+        await Product.findByIdAndUpdate(item.product_id, {
+          $inc: { reserved_stock: -item.quantity }
+        });
+      }
+    }
+
+    await Order.deleteMany({});
+    await Payment.deleteMany({});
+    await StockReservation.deleteMany({});
+    return true;
   }
 };
 

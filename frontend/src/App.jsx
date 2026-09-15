@@ -221,6 +221,47 @@ export default function App() {
     }
   };
 
+  // Order Deletion Actions
+  const handleDeleteOrder = async (orderId) => {
+    if (!confirm(`Are you sure you want to delete order ${orderId}?`)) {
+      return;
+    }
+    try {
+      const res = await fetch(`/api/orders/${orderId}`, {
+        method: 'DELETE'
+      });
+      const json = await res.json();
+      if (!json.success) throw new Error(json.error);
+      fetchOrders();
+      fetchProducts();
+      if (selectedOrder && selectedOrder.id === orderId) {
+        setSelectedOrder(null);
+        setIsCheckoutOpen(false);
+      }
+    } catch (err) {
+      alert(`Error deleting order: ${err.message}`);
+    }
+  };
+
+  const handleClearAllOrders = async () => {
+    if (!confirm('Are you sure you want to clear ALL order history? This will delete all orders.')) {
+      return;
+    }
+    try {
+      const res = await fetch('/api/orders/clear', {
+        method: 'DELETE'
+      });
+      const json = await res.json();
+      if (!json.success) throw new Error(json.error);
+      fetchOrders();
+      fetchProducts();
+      setSelectedOrder(null);
+      setIsCheckoutOpen(false);
+    } catch (err) {
+      alert(`Error clearing orders: ${err.message}`);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-emerald-500 selection:text-white">
       {/* Header Navigation */}
@@ -281,6 +322,8 @@ export default function App() {
         onClose={() => setIsOrdersOpen(false)}
         orders={orders}
         onCancelOrder={handleCancelOrder}
+        onDeleteOrder={handleDeleteOrder}
+        onClearAllOrders={handleClearAllOrders}
         onRefreshOrders={fetchOrders}
         onSelectOrder={(order) => {
           setSelectedOrder(order);
