@@ -1,24 +1,28 @@
 const mongoose = require('mongoose');
 const Product = require('../models/Product');
 
-const ATLAS_URI = process.env.MONGODB_URI;
+const ATLAS_URI = process.env.MONGODB_URI || 'mongodb+srv://sasindu125lakshan_db_user:Pos12345@itcentercluster.lekl7es.mongodb.net/pos-system?retryWrites=true&w=majority';
 const LOCAL_URI = 'mongodb://127.0.0.1:27017/pos-system';
 
+let isConnected = false;
+
 async function connectDB() {
-  // 1. Try MongoDB Atlas Cloud if configured
-  if (ATLAS_URI && ATLAS_URI.includes('mongodb+srv')) {
-    try {
-      console.log('Connecting to MongoDB Atlas Cloud...');
-      await mongoose.connect(ATLAS_URI, { serverSelectionTimeoutMS: 4000 });
-      console.log('🍃 Successfully connected to MongoDB Atlas Cloud!');
-      await seedIfEmpty('MongoDB Atlas Cloud');
-      return;
-    } catch (err) {
-      console.warn(`⚠️ MongoDB Atlas Cloud unreachable (${err.message}). Connecting to Local MongoDB...`);
-    }
+  if (mongoose.connection.readyState === 1) {
+    return;
   }
 
-  // 2. Fallback to Local MongoDB Server
+  // 1. Try MongoDB Atlas Cloud first
+  try {
+    console.log('Connecting to MongoDB Atlas Cloud...');
+    await mongoose.connect(ATLAS_URI, { serverSelectionTimeoutMS: 5000 });
+    console.log('🍃 Successfully connected to MongoDB Atlas Cloud!');
+    await seedIfEmpty('MongoDB Atlas Cloud');
+    return;
+  } catch (err) {
+    console.warn(`⚠️ MongoDB Atlas Cloud note: ${err.message}. Trying Local MongoDB...`);
+  }
+
+  // 2. Fallback to Local MongoDB Server (for local dev)
   try {
     console.log('Connecting to Local MongoDB (127.0.0.1:27017)...');
     await mongoose.connect(LOCAL_URI, { serverSelectionTimeoutMS: 3000 });
