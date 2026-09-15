@@ -205,6 +205,22 @@ export default function App() {
     }
   };
 
+  const handleDeleteProduct = async (id) => {
+    if (!confirm('Are you sure you want to delete this product?')) {
+      return;
+    }
+    try {
+      const res = await fetch(`/api/products/${id}`, {
+        method: 'DELETE'
+      });
+      const json = await res.json();
+      if (!json.success) throw new Error(json.error);
+      fetchProducts();
+    } catch (err) {
+      alert(`Error deleting product: ${err.message}`);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-emerald-500 selection:text-white">
       {/* Header Navigation */}
@@ -279,6 +295,7 @@ export default function App() {
         products={products}
         onCreateProduct={handleCreateProduct}
         onUpdateProduct={handleUpdateProduct}
+        onDeleteProduct={handleDeleteProduct}
       />
     </div>
   );

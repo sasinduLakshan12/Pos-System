@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { X, Plus, Edit2, Package, Check } from 'lucide-react';
+import { X, Plus, Edit2, Package, Check, Trash2 } from 'lucide-react';
 
 export default function ProductManagerModal({
   isOpen,
   onClose,
   products,
   onCreateProduct,
-  onUpdateProduct
+  onUpdateProduct,
+  onDeleteProduct
 }) {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -135,6 +136,7 @@ export default function ProductManagerModal({
                             <button
                               onClick={() => handleSaveStockUpdate(prod.id || prod._id)}
                               className="p-1 bg-emerald-600 text-white rounded hover:bg-emerald-500"
+                              title="Save Stock"
                             >
                               <Check className="w-3 h-3" />
                             </button>
@@ -146,15 +148,27 @@ export default function ProductManagerModal({
                       <td className="p-3 text-amber-400 font-mono">{prod.reserved_stock || 0}</td>
                       <td className="p-3 font-mono font-bold text-emerald-400">{prod.available_stock}</td>
                       <td className="p-3 text-right">
-                        <button
-                          onClick={() => {
-                            setEditingId(prod.id || prod._id);
-                            setEditStock(prod.stock);
-                          }}
-                          className="p-1.5 text-gray-400 hover:text-white rounded hover:bg-slate-800 transition"
-                        >
-                          <Edit2 className="w-3.5 h-3.5" />
-                        </button>
+                        <div className="flex items-center justify-end gap-1">
+                          <button
+                            onClick={() => {
+                              setEditingId(prod.id || prod._id);
+                              setEditStock(prod.stock);
+                            }}
+                            className="p-1.5 text-gray-400 hover:text-white rounded hover:bg-slate-800 transition"
+                            title="Edit Stock"
+                          >
+                            <Edit2 className="w-3.5 h-3.5" />
+                          </button>
+                          {onDeleteProduct && (
+                            <button
+                              onClick={() => onDeleteProduct(prod.id || prod._id)}
+                              className="p-1.5 text-red-400 hover:text-red-300 rounded hover:bg-red-500/10 transition"
+                              title="Delete Product"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          )}
+                        </div>
                       </td>
                     </tr>
                   ))}
