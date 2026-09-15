@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const Product = require('../models/Product');
 
+// Disable query buffering so serverless functions don't hang if disconnected
+mongoose.set('bufferCommands', false);
+
 const ATLAS_URI = process.env.MONGODB_URI || 'mongodb+srv://sasindu125lakshan_db_user:Pos12345@itcentercluster.lekl7es.mongodb.net/pos-system?retryWrites=true&w=majority';
 const LOCAL_URI = 'mongodb://127.0.0.1:27017/pos-system';
-
-let isConnected = false;
 
 async function connectDB() {
   if (mongoose.connection.readyState === 1) {
@@ -14,7 +15,10 @@ async function connectDB() {
   // 1. Try MongoDB Atlas Cloud first
   try {
     console.log('Connecting to MongoDB Atlas Cloud...');
-    await mongoose.connect(ATLAS_URI, { serverSelectionTimeoutMS: 5000 });
+    await mongoose.connect(ATLAS_URI, {
+      serverSelectionTimeoutMS: 5000,
+      connectTimeoutMS: 5000
+    });
     console.log('🍃 Successfully connected to MongoDB Atlas Cloud!');
     await seedIfEmpty('MongoDB Atlas Cloud');
     return;
@@ -25,7 +29,10 @@ async function connectDB() {
   // 2. Fallback to Local MongoDB Server (for local dev)
   try {
     console.log('Connecting to Local MongoDB (127.0.0.1:27017)...');
-    await mongoose.connect(LOCAL_URI, { serverSelectionTimeoutMS: 3000 });
+    await mongoose.connect(LOCAL_URI, {
+      serverSelectionTimeoutMS: 3000,
+      connectTimeoutMS: 3000
+    });
     console.log('🍃 Successfully connected to Local MongoDB Server!');
     await seedIfEmpty('Local MongoDB');
   } catch (err) {
