@@ -221,6 +221,23 @@ export default function App() {
     }
   };
 
+  const handleResetDefaultProducts = async () => {
+    if (!confirm('Are you sure you want to reload the default sample product catalog?')) {
+      return;
+    }
+    try {
+      const res = await fetch('/api/products/reset-defaults', {
+        method: 'POST'
+      });
+      const json = await res.json();
+      if (!json.success) throw new Error(json.error);
+      fetchProducts();
+      alert('Sample products reloaded successfully!');
+    } catch (err) {
+      alert(`Error reloading sample products: ${err.message}`);
+    }
+  };
+
   // Order Deletion Actions
   const handleDeleteOrder = async (orderId) => {
     if (!confirm(`Are you sure you want to delete order ${orderId}?`)) {
@@ -339,6 +356,7 @@ export default function App() {
         onCreateProduct={handleCreateProduct}
         onUpdateProduct={handleUpdateProduct}
         onDeleteProduct={handleDeleteProduct}
+        onResetDefaults={handleResetDefaultProducts}
       />
     </div>
   );

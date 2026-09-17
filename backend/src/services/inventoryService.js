@@ -60,6 +60,20 @@ const inventoryService = {
   async deleteProduct(id) {
     const res = await Product.findByIdAndDelete(id);
     return !!res;
+  },
+
+  async seedDefaultProducts() {
+    const defaultCatalog = [
+      { name: 'Wireless Ergonomic Mouse', price: 49.99, stock: 15, reserved_stock: 0 },
+      { name: 'Mechanical RGB Keyboard', price: 119.99, stock: 8, reserved_stock: 0 },
+      { name: 'UltraWide 34" Monitor', price: 499.99, stock: 3, reserved_stock: 0 },
+      { name: 'USB-C Multi-Port Hub', price: 29.99, stock: 25, reserved_stock: 0 },
+      { name: 'Noise-Canceling Headphones', price: 199.99, stock: 5, reserved_stock: 0 },
+      { name: 'LKPOS Aluminum Stand', price: 89.99, stock: 12, reserved_stock: 0 }
+    ];
+    await Product.deleteMany({});
+    await Product.insertMany(defaultCatalog);
+    return this.getAllProducts();
   }
 };
 

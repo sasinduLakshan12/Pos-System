@@ -52,6 +52,16 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// POST /api/products/reset-defaults - Reset to default sample catalog
+router.post('/reset-defaults', async (req, res) => {
+  try {
+    const products = await inventoryService.seedDefaultProducts();
+    res.json({ success: true, message: 'Catalog reset to default products successfully', data: products });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 // DELETE /api/products/:id - Delete product
 router.delete('/:id', async (req, res) => {
   try {
