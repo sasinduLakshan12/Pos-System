@@ -5,7 +5,7 @@ export default function Navbar({ cartCount, onOpenCart, onOpenOrders, onOpenInve
   return (
     <header className="glass-card sticky top-0 z-40 px-3 sm:px-6 py-3 sm:py-4 mb-4 sm:mb-8 border-b border-emerald-900/40 shadow-xl backdrop-blur-md">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
-        {/* Brand with LoomPOS Smart Store Styling */}
+        {/* Brand with LKPOS System Styling */}
         <div className="flex items-center justify-between w-full md:w-auto gap-3">
           <div className="flex items-center gap-2.5 sm:gap-3">
             <div className="bg-emerald-600 p-2 sm:p-2.5 rounded-xl text-white shadow-lg shadow-emerald-600/30 shrink-0">
@@ -13,7 +13,7 @@ export default function Navbar({ cartCount, onOpenCart, onOpenOrders, onOpenInve
             </div>
             <div>
               <h1 className="text-lg sm:text-xl font-bold tracking-wide text-white flex items-center gap-1.5 sm:gap-2">
-                LOOMPOS <span className="text-[10px] sm:text-xs bg-amber-500/20 text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded-full uppercase tracking-wider font-semibold">Smart Store</span>
+                LKPOS <span className="text-[10px] sm:text-xs bg-amber-500/20 text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded-full uppercase tracking-wider font-semibold">System</span>
               </h1>
               <p className="text-[11px] sm:text-xs text-gray-400">Concurrency-Safe POS & Stock Reservation</p>
             </div>

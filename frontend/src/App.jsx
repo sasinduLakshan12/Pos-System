@@ -274,11 +274,11 @@ export default function App() {
 
       {/* Main Container */}
       <main className="max-w-7xl mx-auto px-3 sm:px-6 pb-12 sm:pb-16 flex-1 w-full space-y-5 sm:space-y-8">
-        {/* Banner with LoomPOS Smart Store Title */}
+        {/* Banner with LKPOS System Title */}
         <div className="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-emerald-900/30 bg-gradient-to-r from-emerald-950/40 via-slate-900 to-teal-950/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 shadow-lg">
           <div>
             <h2 className="text-base sm:text-xl font-bold text-white mb-1">
-              LoomPOS Smart Store — Concurrency & Stock Reservation Portal
+              LKPOS System — Concurrency & Stock Reservation Portal
             </h2>
             <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed">
               Demonstrates atomic stock reservations, 5-minute hold timers, mock payment outcomes, idempotency duplicate detection, and order lifecycle transitions with MongoDB transactions.
@@ -292,7 +292,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-slate-900 py-4 sm:py-6 text-center text-[11px] sm:text-xs text-slate-500 bg-slate-950">
-        LoomPOS Smart Store — Software Engineer Technical Assessment
+        LKPOS System — Software Engineer Technical Assessment
       </footer>
 
       {/* Modals */}

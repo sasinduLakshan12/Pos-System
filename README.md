@@ -1,4 +1,4 @@
-# LoomPOS Smart Store — POS Order & Inventory System
+# LKPOS System — POS Order & Inventory System
 
 > **Techloom.ai Software Engineer Intern — Practical Assessment Submission**
 

@@ -37,7 +37,7 @@ app.use('/api/orders', paymentRoutes);
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'OK',
-    system: 'LoomPOS Smart Store REST API',
+    system: 'LKPOS System REST API',
     timestamp: new Date().toISOString()
   });
 });

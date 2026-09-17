@@ -1,7 +1,7 @@
 {
-  "name": "pos-system-root",
+  "name": "lkpos-system",
   "version": "1.0.0",
-  "description": "LoomPOS Smart Store Root Package",
+  "description": "LKPOS System Root Package",
   "private": true,
   "scripts": {
     "start:backend": "cd backend && npm run dev",
